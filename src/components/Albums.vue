@@ -1,7 +1,7 @@
 <template>
-    <div class="albums container-md mt-5">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-2 g-lg-3">
-            <div class="card col" v-for="(album, index) in albums" :key="index">
+    <div class="albums container-md p-1 p-sm-2 p-md-3 p-lg-5">
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5">
+            <div class="card col my-2" v-for="(album, index) in albums" :key="index">
             <SingleAlbum :api="album"/>
             </div>
         </div>
@@ -32,17 +32,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/style/common';
-    .albums {
+    .row {
         display: flex;
-        align-items: center;
-
-        .row {
-            width: 100%;
-        }
-
-        .card {
-            background-color: transparent;
-            border: none;
-        }
+        flex-wrap: wrap;
+        padding: 1em 0;
     }
+
+    .card {
+        background-color: transparent;
+        border: none;
+    }
+    
 </style>

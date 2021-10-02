@@ -16,9 +16,13 @@ export default {
 
 header {
     background-color: $lightColor;
-    padding: 15px;
-    height: 5rem;
+    padding: .625rem;
+    height: 3.125rem;
     display: flex;
+
+    img {
+        height: 100%;
+    }
 }
 
 </style>
