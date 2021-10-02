@@ -1,7 +1,7 @@
 <template>
-    <div class="albums container mt-5">
-        <div class="row row-cols-lg-5">
-            <div class="card col-6 col-md-4" v-for="(album, index) in albums" :key="index">
+    <div class="albums container-md mt-5">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-2 g-lg-3">
+            <div class="card col" v-for="(album, index) in albums" :key="index">
             <SingleAlbum :api="album"/>
             </div>
         </div>
@@ -41,7 +41,8 @@ export default {
         }
 
         .card {
-            background-color: $lightColor;
+            background-color: transparent;
+            border: none;
         }
     }
 </style>

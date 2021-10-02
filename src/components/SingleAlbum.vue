@@ -1,9 +1,11 @@
 <template>
-    <div class="album text-center p-4">
-        <img :src="api.poster" :alt="api.title">
-        <h3 class="my-4">{{api.title}}</h3>
-        <h4 class="m-0">{{api.author}}</h4>
-        <h4>{{api.year}}</h4>
+    <div class="album text-center p-3">
+        <div class="wrapper">
+            <img :src="api.poster" :alt="api.title">
+            <h3 class="my-4">{{api.title}}</h3>
+            <h4 class="m-0">{{api.author}}</h4>
+            <h4>{{api.year}}</h4>
+        </div>
     </div>
 </template>
 
@@ -18,10 +20,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/style/common';
-    .album {
-
+    .album, .wrapper {
+        background-color: $lightColor;
+        height: 100%;
         img {
-            max-width: 100%;
+            width: 100%;
         }
         h3 {
             font-size: $titleFontSize;
