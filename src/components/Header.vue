@@ -1,5 +1,5 @@
 <template>
-    <header class="container">
+    <header>
         <img :src="logoImg" alt="Logo">
     </header>
 </template>
@@ -12,12 +12,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/style/variables';
+@import '../assets/style/common';
 
 header {
     background-color: $lightColor;
     padding: 15px;
-    height: 80px;
+    height: 5rem;
     display: flex;
 }
 
