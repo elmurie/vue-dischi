@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :logoImg="require('./assets/images/spotify-logo.png')"/>
+    <Header :logoImg="require('./assets/images/spotify-logo.png')" @changedGenre="selectedGenre"/>
     <Albums>
       <SingleAlbum/>
     </Albums>
@@ -19,6 +19,17 @@ export default {
     Header,
     Albums,
     SingleAlbum
+  },
+  data() {
+    return {
+      genre : ''
+    }
+  },
+  methods : {
+    selectedGenre(chosenGenre) {
+      this.genre = chosenGenre;
+      console.log('select field passed this genre to app.vue', this.genre);
+    }
   }
 }
 </script>

@@ -26,7 +26,8 @@ export default {
         .then( (response) => {
             this.albums = response.data.response;
         } );
-    }
+    },
+    
 }
 </script>
 

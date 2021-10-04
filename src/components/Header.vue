@@ -1,7 +1,7 @@
 <template>
     <header>
         <img :src="logoImg" alt="Logo">
-        <select v-model="changedGenre">
+        <select v-model="selectOption" @change="$emit('changedGenre', selectOption)">
             <option value="" disabled selected hidden>Select a genre</option>
             <option value="Rock">Rock</option>
             <option value="Metal">Metal</option>
@@ -17,7 +17,7 @@ export default {
     props : ['logoImg'],
     data() {
         return {
-            changedGenre : ""
+            selectOption : ""
         }
     }
 }
@@ -31,6 +31,7 @@ header {
     padding: .625rem;
     height: 3.125rem;
     display: flex;
+    justify-content: space-between;
 
     img {
         height: 100%;
