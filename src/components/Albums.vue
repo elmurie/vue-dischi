@@ -14,7 +14,8 @@ import axios from 'axios';
 export default {
     name : "Albums",
     props : {
-        passedGenre : String
+        passedGenre : String,
+        passedAuthor : String
     },
     components : {
         SingleAlbum
@@ -22,7 +23,8 @@ export default {
     data() {
         return {
             albums : [],
-            genres : []
+            genres : [],
+            authors: []
         }
     },
     created() {
@@ -36,18 +38,27 @@ export default {
                     }
                 }
             );
-            console.log(this.genres);
+            this.albums.forEach(
+                (elm) => {
+                    if ( !this.authors.includes(elm.author) ) {
+                        this.authors.push(elm.author);
+                    }
+                }
+            );
             this.$emit('genresList', this.genres);
+            this.$emit('authorsList', this.authors);
         });
     },
     computed : {
         filteredAlbums() {
             const arrFiltered =  this.albums.filter(
                 (elm) => {
-                    if ( this.passedGenre == '' ) {
+                    if ( this.passedGenre == '' && this.passedAuthor == '' ) {
                         return this.albums;
-                    } else {
+                    } else if ( this.passedGenre != '' ){
                         return elm.genre.toLowerCase().includes(this.passedGenre.toLowerCase());
+                    } else if ( this.passedAuthor != '' ) {
+                        return elm.author.toLowerCase().includes(this.passedAuthor.toLowerCase());
                     }
                     
                 }

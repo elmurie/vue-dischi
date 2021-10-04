@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header :genreList="printedList" :logoImg="require('./assets/images/spotify-logo.png')" @changedGenre="selectedGenre"/>
-    <Albums @genresList="printList" :passedGenre="genre">
+    <Header :genreList="printedList" :authorsList="printedAuthor" :logoImg="require('./assets/images/spotify-logo.png')" @changedGenre="selectedGenre" @changedAuthor="selectedAuthor"/>
+    <Albums @genresList="printList" :passedGenre="genre" @authorsList="printAuthors" :passedAuthor="author">
       <SingleAlbum/>
     </Albums>
     
@@ -23,7 +23,9 @@ export default {
   data() {
     return {
       genre : '',
-      printedList : []
+      printedList : [],
+      author : '',
+      printedAuthor : []
     }
   },
   methods : {
@@ -32,7 +34,13 @@ export default {
     },
     printList(array) {
       this.printedList = array;
-    }
+    },
+    selectedAuthor(chosenAuthor) {
+      this.author = chosenAuthor;
+    },
+    printAuthors(array) {
+      this.printedAuthor = array;
+    },
   }
 }
 </script>
