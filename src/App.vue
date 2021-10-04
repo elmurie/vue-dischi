@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :logoImg="require('./assets/images/spotify-logo.png')" @changedGenre="selectedGenre"/>
-    <Albums>
+    <Albums :passedGenre="genre">
       <SingleAlbum/>
     </Albums>
     

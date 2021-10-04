@@ -1,7 +1,7 @@
 <template>
     <div class="albums container-md p-1 p-sm-2 p-md-3 p-lg-5">
         <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5">
-            <div class="card col my-2" v-for="(album, index) in albums" :key="index">
+            <div class="card col my-2" v-for="(album, index) in filteredAlbums" :key="index">
             <SingleAlbum :api="album"/>
             </div>
         </div>
@@ -13,6 +13,9 @@ import SingleAlbum from './SingleAlbum.vue';
 import axios from 'axios';
 export default {
     name : "Albums",
+    props : {
+        passedGenre : String
+    },
     components : {
         SingleAlbum
     },
@@ -27,7 +30,21 @@ export default {
             this.albums = response.data.response;
         } );
     },
-    
+    computed : {
+        filteredAlbums() {
+            const arrFiltered =  this.albums.filter(
+                (elm) => {
+                    if ( this.passedGenre == '' ) {
+                        return this.albums;
+                    } else {
+                        return elm.genre.toLowerCase().includes(this.passedGenre.toLowerCase());
+                    }
+                    
+                }
+            );
+            return arrFiltered;
+        }
+    }
 }
 </script>
 
