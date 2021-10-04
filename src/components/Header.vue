@@ -2,12 +2,9 @@
     <header>
         <img :src="logoImg" alt="Logo">
         <select v-model="selectOption" @change="$emit('changedGenre', selectOption)">
-            <option value="" disabled selected hidden>Select a genre</option>
-            <option value="">All</option>
-            <option value="Rock">Rock</option>
-            <option value="Metal">Metal</option>
-            <option value="Pop">Pop</option>
-            <option value="Jazz">Jazz</option>
+            <option value="" selected>All</option>
+            <option v-for="(genre, index) in genreList" :key="index" :value="genre">{{genre}}</option>
+            
         </select>
     </header>
 </template>
@@ -15,7 +12,7 @@
 <script>
 export default {
     name : "Header",
-    props : ['logoImg'],
+    props : ['logoImg', 'genreList'],
     data() {
         return {
             selectOption : ""

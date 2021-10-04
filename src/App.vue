@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header :logoImg="require('./assets/images/spotify-logo.png')" @changedGenre="selectedGenre"/>
-    <Albums :passedGenre="genre">
+    <Header :genreList="printedList" :logoImg="require('./assets/images/spotify-logo.png')" @changedGenre="selectedGenre"/>
+    <Albums @genresList="printList" :passedGenre="genre">
       <SingleAlbum/>
     </Albums>
     
@@ -22,13 +22,16 @@ export default {
   },
   data() {
     return {
-      genre : ''
+      genre : '',
+      printedList : []
     }
   },
   methods : {
     selectedGenre(chosenGenre) {
       this.genre = chosenGenre;
-      console.log('select field passed this genre to app.vue', this.genre);
+    },
+    printList(array) {
+      this.printedList = array;
     }
   }
 }

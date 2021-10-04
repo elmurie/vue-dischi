@@ -21,14 +21,24 @@ export default {
     },
     data() {
         return {
-            albums : []
+            albums : [],
+            genres : []
         }
     },
     created() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then( (response) => {
             this.albums = response.data.response;
-        } );
+            this.albums.forEach(
+                (elm) => {
+                    if ( !this.genres.includes(elm.genre) ) {
+                        this.genres.push(elm.genre);
+                    }
+                }
+            );
+            console.log(this.genres);
+            this.$emit('genresList', this.genres);
+        });
     },
     computed : {
         filteredAlbums() {
