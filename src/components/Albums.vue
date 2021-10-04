@@ -35,13 +35,9 @@ export default {
                 (elm) => {
                     if ( !this.genres.includes(elm.genre) ) {
                         this.genres.push(elm.genre);
-                    }
-                }
-            );
-            this.albums.forEach(
-                (elm) => {
+                    } 
                     if ( !this.authors.includes(elm.author) ) {
-                        this.authors.push(elm.author);
+                        this.authors.push(elm.author)
                     }
                 }
             );
@@ -55,9 +51,11 @@ export default {
                 (elm) => {
                     if ( this.passedGenre == '' && this.passedAuthor == '' ) {
                         return this.albums;
-                    } else if ( this.passedGenre != '' ){
+                    } 
+                    if ( this.passedGenre != '' ) {
                         return elm.genre.toLowerCase().includes(this.passedGenre.toLowerCase());
-                    } else if ( this.passedAuthor != '' ) {
+                    } 
+                    if ( this.passedAuthor != '' ) {
                         return elm.author.toLowerCase().includes(this.passedAuthor.toLowerCase());
                     }
                     
