@@ -1,13 +1,25 @@
 <template>
     <header>
         <img :src="logoImg" alt="Logo">
+        <select v-model="changedGenre">
+            <option value="" disabled selected hidden>Select a genre</option>
+            <option value="Rock">Rock</option>
+            <option value="Metal">Metal</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+        </select>
     </header>
 </template>
 
 <script>
 export default {
     name : "Header",
-    props : ['logoImg']
+    props : ['logoImg'],
+    data() {
+        return {
+            changedGenre : ""
+        }
+    }
 }
 </script>
 
