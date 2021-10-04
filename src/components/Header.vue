@@ -1,14 +1,18 @@
 <template>
     <header>
         <img :src="logoImg" alt="Logo">
-        <select v-model="selectOption" @change="$emit('changedGenre', selectOption)">
-            <option value="" selected>All</option>
-            <option v-for="(genre, index) in genreList" :key="index" :value="genre">{{genre}}</option>
-        </select>
-        <select v-model="selectAuthor" @change="$emit('changedAuthor', selectAuthor)">
-            <option value="" selected>All</option>
-            <option v-for="(author, index) in authorsList" :key="index" :value="author">{{author}}</option>
-        </select>
+        <div class="filters">
+            <select v-model="selectOption" @change="$emit('changedGenre', selectOption)">
+                <option value="" selected disabled hidden>Filter by genre</option>
+                <option value="">All</option>
+                <option v-for="(genre, index) in genreList" :key="index" :value="genre">{{genre}}</option>
+            </select>
+            <select class="ms-3" v-model="selectAuthor" @change="$emit('changedAuthor', selectAuthor)">
+                <option value="" selected disabled hidden>Filter by author</option>
+                <option value="">All</option>
+                <option v-for="(author, index) in authorsList" :key="index" :value="author">{{author}}</option>
+            </select>
+        </div>
     </header>
 </template>
 
