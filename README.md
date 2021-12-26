@@ -8,7 +8,7 @@ You can check it out <a href="https://lucid-mestorf-9bc810.netlify.app">here!</a
 <details>
   <summary>Screenshots</summary><details>
   <img src="https://i.imgur.com/jshDyKE.png" name="1">
-  <img src="https://i.imgur.com/xacMkPV.png" name="2">
+  <img src="https://i.imgur.com/fxFq5rG.png" name="2">
 </details>
  
 ## Project setup
