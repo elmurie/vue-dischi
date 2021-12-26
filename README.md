@@ -1,5 +1,9 @@
 # vue-dischi
 
+## Info
+```
+This is a Vue CLI project that displays music albums recalling an API
+
 ## Project setup
 ```
 npm install
