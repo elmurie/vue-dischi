@@ -1,8 +1,10 @@
 # vue-dischi
 
 ## Info
-```
-This is a Vue CLI project that displays music albums recalling an API
+This is a **Vue CLI** project that displays music albums recalling an API, there is the possibility to filter by either genre or author.
+
+You can check it out <a href="https://lucid-mestorf-9bc810.netlify.app">here!</a>
+
 
 ## Project setup
 ```
@@ -13,16 +15,3 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
